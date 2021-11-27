@@ -14,3 +14,11 @@ export const Container = styled.div`
     width: 100%;
     background: #fff;
 `;
+
+export const DetailsContainer = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: ${props => props.theme.colors.neutral.grayishViolet};
+`;
