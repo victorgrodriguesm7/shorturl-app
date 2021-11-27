@@ -6,6 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     padding?: string;
     fontSize?: "xLarge" | "large" | "medium" | "small";
     margin?: string;
+    zIndex?: string;
 }
 
 export default function Button({ 
@@ -15,9 +16,10 @@ export default function Button({
     padding="0.25rem 0.5rem",
     fontSize="medium",
     margin="0",
+    zIndex,
     ...rest}: ButtonProps){
     return (
-        <CustomButton active={active} borderRadius={borderRadius} padding={padding} fontSize={fontSize} margin={margin} {...rest}>
+        <CustomButton active={active} borderRadius={borderRadius} padding={padding} fontSize={fontSize} margin={margin} zIndex={zIndex} {...rest}>
             { children }
         </CustomButton>
     )
