@@ -20,5 +20,6 @@ export const DetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    background: ${props => props.theme.colors.neutral.grayishViolet};
+    background: ${props => props.theme.colors.neutral.gray};
+    filter: brightness(1.25);
 `;
