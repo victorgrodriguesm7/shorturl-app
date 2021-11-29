@@ -11,7 +11,7 @@ export default function useResponsive(){
         } else {
             return "mobile"
         }
-    }));
+    })());
 
 
     const handleResize = useCallback(() => {
