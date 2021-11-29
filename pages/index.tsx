@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Content, Header, UrlShorter } from '../components'
+import { Content, Header, UrlShorter, Details } from '../components'
 import { Main, Container, DetailsContainer} from '../styles/index'
 
 const Home: NextPage = () => {
@@ -11,6 +11,7 @@ const Home: NextPage = () => {
           <Content/>
           <DetailsContainer>
             <UrlShorter/>
+            <Details/>
           </DetailsContainer>
         </Container>
       </Main>
