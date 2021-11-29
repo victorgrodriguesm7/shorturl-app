@@ -3,11 +3,12 @@ import Content from "./Content"
 import Header from "./Header"
 import UrlShorter from "./UrlShorter"
 import Details from "./Details"
-
+import GetStarted from "./GetStarted"
 export {
     Button,
     Content,
     Header,
     UrlShorter,
-    Details
+    Details,
+    GetStarted
 }
