@@ -9,6 +9,7 @@ export interface Url {
 interface UrlContext {
     urls: Array<Url>;
     addUrl(url: Url): void;
+    copyUrl(index: number): void;
 }
 
 interface UrlContextProviderProps {
@@ -25,6 +26,8 @@ export default function UrlContextProvider({ children }: UrlContextProviderProps
 
         if (result){
             let urls = JSON.parse(result);
+
+            urls = urls.map((url: Url) => ({ ...url, isCopied: false }));
 
             setUrls(urls as Array<Url>);
             return;
@@ -47,6 +50,18 @@ export default function UrlContextProvider({ children }: UrlContextProviderProps
         localStorage.setItem('urls', JSON.stringify(urls));
     }
 
+    function copyUrl(index: number): void {
+        setUrls((state) => {
+            state[index].isCopied = true;
+
+            let url = state[index];
+
+            navigator.clipboard.writeText(url.shortLink);
+
+            return state;
+        })
+    }
+
     useEffect(() => {
         loadUrls();
 
@@ -59,7 +74,8 @@ export default function UrlContextProvider({ children }: UrlContextProviderProps
 
     let valuesProvided = {
         urls,
-        addUrl
+        addUrl,
+        copyUrl
     };
 
     return (
