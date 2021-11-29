@@ -12,6 +12,10 @@ export const Container = styled.div`
 export const Title = styled.h2`
     padding: 0.5rem;
     font-size: ${props => props.theme.fontSize.large};
+
+    @media(max-width: 850px) {
+        text-align: center;   
+    }
 `;
 
 export const Description = styled.span`
@@ -20,6 +24,10 @@ export const Description = styled.span`
     font-size: ${props => props.theme.fontSize.medium};
 
     filter: opacity(0.5);
+
+    @media(max-width: 850px) {
+        width: 100%;   
+    }
 `;
 
 export const CardContainer = styled.div`
@@ -43,6 +51,21 @@ export const CardContainer = styled.div`
         background: ${props => props.theme.colors.primary.cyan};
         filter: brightness(0.85);
     }
+
+    @media(max-width: 850px) {
+        flex-direction: column;
+        gap: 0;
+
+        &::before {
+            width: 0.5rem;
+
+            height: 80%;
+
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
 `;
 
 interface CardProps {
@@ -58,6 +81,11 @@ export const Card = styled.div<CardProps>`
     padding: 2rem 1rem;
     height: fit-content;
     margin-bottom: 5rem;
+
+    @media(max-width: 850px) {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
 `;
 
 export const IconContainer = styled.div`
@@ -76,6 +104,11 @@ export const IconContainer = styled.div`
         height: 100%;
         border: 0.25rem solid transparent;
         filter: opacity(0.7);
+    }
+
+    @media(max-width: 850px) {
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 `;
 

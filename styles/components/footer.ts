@@ -8,6 +8,12 @@ export const GridContainer = styled.footer`
     width: 100%;
     height: max-content;
     padding: 2rem 10% 3rem;
+
+    @media(max-width: 850px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        place-items: center;
+    }
 `;
 
 export const LogoContainer = styled.div`
@@ -23,11 +29,19 @@ export const LogoContainer = styled.div`
 export const TopicContainer = styled.div`
     display: flex;
     flex-direction: column;
+
+    @media(max-width: 850px) {
+        align-items: center;
+    }
 `;
 
 export const SocialMediaContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
+
+    @media(max-width: 850px) {
+        width: 100%;
+    }
 `;
 
 export const TopicTitle = styled.h3`
@@ -66,5 +80,9 @@ export const SocialMediaIcon = styled.a`
         svg path {
             fill: ${props => props.theme.colors.primary.cyan};
         }
+    }
+
+    @media(max-width: 850px) {
+        padding: 0;
     }
 `;

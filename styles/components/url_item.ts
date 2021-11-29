@@ -19,6 +19,13 @@ export const FullLink = styled.p`
     text-overflow: ellipsis;
     
     font-weight: ${props => props.theme.fontWeight.default};
+
+    @media(max-width: 850px) {
+        max-width: 75%;
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
 `;
 
 export const ShortLink = styled.a`
@@ -27,4 +34,8 @@ export const ShortLink = styled.a`
 
     cursor: pointer;
     text-decoration: none;
+
+    @media(max-width: 850px) {
+        display: none;
+    }
 `;

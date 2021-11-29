@@ -22,6 +22,16 @@ export const Form = styled.form`
 
     background: ${props => props.theme.colors.neutral.darkBlue};
     overflow: clip;
+
+    @media(max-width: 850px) {
+        height: 9rem;
+        flex-direction: column;
+
+        button {
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+    }
 `;
 
 type TextFieldContainerProps  = {
@@ -60,4 +70,13 @@ export const TextField = styled.input`
     outline: 0;
     border: 0;
     border-radius: 0.25rem;
+
+    @media(max-width: 850px) {
+        width: 100%;
+        padding-left: 0.5rem;
+            
+        &::placeholder{
+            font-size: 1rem;
+        }
+    }
 `;

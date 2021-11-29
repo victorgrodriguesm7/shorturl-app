@@ -21,4 +21,8 @@ export const Title = styled.h2`
     color: white;
 
     padding: 0rem 0 1rem;
+
+    @media(max-width: 850px) {
+        text-align: center;
+    }
 `;

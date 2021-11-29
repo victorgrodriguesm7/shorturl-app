@@ -7,9 +7,11 @@ import ApiService from "../services/api";
 import { AxiosHttpClient } from "../services/http_client";
 import { useUrl, Url } from "../contexts/UrlContext";
 import UrlItem from "./UrlItem";
+import useResponsive from "../hooks/useResponsive";
 
 const apiService = new ApiService(new AxiosHttpClient());
 export default function UrlShorter(){
+    const surfaceType = useResponsive();
     const { urls, addUrl } = useUrl();
     const [ error, setError ] = React.useState<string | null>(null);
     const linkRef = React.useRef<HTMLInputElement>() as React.MutableRefObject<HTMLInputElement>;
@@ -66,7 +68,7 @@ export default function UrlShorter(){
         <Container>
             <Form onSubmit={handleSubmit}>
                 <Image
-                    src="/assets/bg-shorten-desktop.svg"
+                    src={surfaceType == "desktop" ? "/assets/bg-shorten-desktop.svg" : "/assets/bg-shorten-mobile.svg"}
                     alt="Form Background"
                     layout="fill"
                     />

@@ -44,3 +44,32 @@ export const MenuItem = styled.a`
         filter: opacity(1);
     }
 `;
+
+export const Hamburguer = styled.button`
+    width: 1.5rem;
+    height: 0.25rem;
+
+    outline: 0;
+    border: 0;
+    background: ${props => props.theme.colors.neutral.gray};
+
+    &::before {
+        display: inline-block;
+        content: '';
+        width: 1.5rem;
+        height: 0.25rem;
+
+        background: ${props => props.theme.colors.neutral.gray};
+        transform: translateY(-475%);
+    }
+
+    &::after {
+        display: inline-block;
+        content: '';
+        width: 1.5rem;
+        height: 0.25rem;
+
+        background: ${props => props.theme.colors.neutral.gray};
+        transform: translateY(-550%);
+    }
+`;

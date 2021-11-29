@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import useResponsive from '../hooks/useResponsive';
 import {
     MainContainer,
     Container,
