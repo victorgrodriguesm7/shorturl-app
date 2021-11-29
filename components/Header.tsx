@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import useResponsive from '../hooks/useResponsive';
+import { useEffect, useState } from 'react';
 import {
     Container,
     Hamburguer,
@@ -8,10 +8,17 @@ import {
     MenuItem,
     RightSide
 } from '../styles/components/header';
+import getSurface, { SurfaceType } from '../utils/getSurface';
 import Button from './Button';
 
 export default function Header(){
-    const surfaceType = useResponsive();
+    const [ surfaceType, setSurfaceType ] = useState<SurfaceType>();
+
+    useEffect(() => {
+        if (typeof surfaceType === "undefined"){
+            setSurfaceType(getSurface());
+        }
+    }, [surfaceType])
     
     if (surfaceType === "desktop"){
         return (

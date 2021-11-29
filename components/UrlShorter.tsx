@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
 import { Container, Form, TextField, TextFieldContainer } from "../styles/components/url_shorter";
@@ -7,14 +7,20 @@ import ApiService from "../services/api";
 import { AxiosHttpClient } from "../services/http_client";
 import { useUrl, Url } from "../contexts/UrlContext";
 import UrlItem from "./UrlItem";
-import useResponsive from "../hooks/useResponsive";
+import getSurface, { SurfaceType } from "../utils/getSurface";
 
 const apiService = new ApiService(new AxiosHttpClient());
 export default function UrlShorter(){
-    const surfaceType = useResponsive();
+    const [ surfaceType, setSurfaceType ] = useState<SurfaceType>();
     const { urls, addUrl } = useUrl();
     const [ error, setError ] = React.useState<string | null>(null);
     const linkRef = React.useRef<HTMLInputElement>() as React.MutableRefObject<HTMLInputElement>;
+
+    useEffect(()=> {
+        if (typeof surfaceType === "undefined"){
+            setSurfaceType(getSurface())
+        }
+    }, [ surfaceType ]);
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
