@@ -78,8 +78,8 @@ export default function UrlShorter(){
                 </Button>
             </Form>
             {
-                urls.map((url) => {
-                    return <UrlItem url={url}/>
+                urls.map((url, index) => {
+                    return <UrlItem key={index} url={url} index={index}/>
                 })
             }
         </Container>
